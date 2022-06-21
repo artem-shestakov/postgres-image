@@ -1,3 +1,5 @@
-ARG POSTGRES_VERSION=10-alpine
+ARG POSTGRES_VERSION=10
 FROM postgres:$POSTGRES_VERSION
-RUN apk add --no-cache python3 sudo
+RUN apt-get update && apt-get install -y \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
